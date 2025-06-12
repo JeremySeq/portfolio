@@ -1,0 +1,31 @@
+.main {
+    /*background-color: white;*/
+    text-align: center;
+    align-content: center;
+
+    /*position: relative;*/
+    /*transform: translateX(-50%);*/
+    /*left: 50%;*/
+    /*width: 40%;*/
+}
+
+.main p {
+    line-height: 1.5;
+}
+
+.main button {
+    font-size: 15pt;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--primary);
+    color: var(--black);
+    transition: 0.2s;
+    font-family: "JetBrains Mono", monospace;
+    margin: 5px;
+}
+
+.main button:hover {
+    background-color: var(--primary-dark);
+    cursor: pointer;
+}

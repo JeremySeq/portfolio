@@ -1,0 +1,59 @@
+.socials {
+    /*background-color: var(--primary-dark);*/
+    padding: 15px;
+    border-radius: 15px;
+    /*width: 100%;*/
+    /*height: 100%;*/
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--light-bg);
+    border: 1px solid var(--primary-light);
+}
+
+.socials h2 {
+    margin: 5px;
+}
+
+.iconText {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14pt;
+    gap: 10px; /* optional spacing between icon and text */
+    background-color: var(--light-bg);
+    padding: 10px;
+    border-radius: 8px;
+    justify-content: space-between;
+    width: 300px;
+    transition: 100ms ease-in-out;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.iconText i {
+    font-size: 32px; /* make sure it doesn't get too big */
+}
+
+.iconText img {
+    width: 26px;
+    background-color: white;
+    border-radius: 100%;
+    padding: 3px;
+    transition: 100ms ease-in-out;
+}
+
+.iconText strong {
+    margin-left: auto;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: normal;
+}
+
+.iconText:hover {
+    background-color: var(--primary-bg);
+    color: var(--primary-light);
+    cursor: pointer;
+}
+
+.iconText:hover img {
+    background-color: var(--primary-light);
+}

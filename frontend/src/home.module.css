@@ -1,0 +1,194 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.left {
+    /*flex: 0 0 auto;*/
+    max-width: max-content;
+}
+
+.right {
+    flex: 1 1 300px;
+    min-width: 300px;
+    max-width: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.break {
+    border: 3px solid var(--light-bg);
+    border-radius: 10px;
+    width: 100%;
+
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.hello {
+    font-size: 18pt;
+    color: var(--gray);
+}
+
+.name {
+    font-weight: 500;
+    font-size: 54pt;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+}
+
+.headingDescription {
+    font-size: 18pt;
+    color: var(--primary-light);
+    margin-bottom: 20px;
+    max-width: 550px;
+}
+
+.aboutMe {
+    max-width: 550px;
+}
+
+.aboutMe h2 {
+    font-family: "JetBrains Mono", monospace;
+    margin-bottom: 0;
+}
+
+.aboutMe p {
+    line-height: 1.5;
+}
+
+.mods {
+
+}
+
+.modList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.moreMods {
+    margin-top: 0;
+    text-align: center;
+    color: var(--gray);
+    font-size: 14pt;
+    background-color: var(--light-bg);
+    border: none;
+    padding: 5px 50px;
+    border-radius: 15px;
+    transition: 100ms ease-in-out;
+    width: fit-content;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.projectHeader {
+
+}
+
+.projectSubheader {
+    font-size: 14pt;
+    text-wrap: wrap;
+    max-width: 900px;
+    line-height: 1.5;
+}
+.projectSubheader strong {
+    color: var(--primary-light);
+}
+
+.projectGithub {
+    text-decoration: none;
+    color: var(--primary-light);
+    font-size: 14pt;
+}
+
+.projectTechList {
+    font-size: 14pt;
+    line-height: 1.25;
+}
+
+.techTagList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.techTag {
+    display: inline-block;
+    background-color: var(--light-bg);
+    color: var(--primary);
+    font-size: 12pt;
+    font-family: "JetBrains Mono", monospace;
+    padding: 4px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--primary-light);
+    white-space: nowrap;
+    user-select: none;
+}
+
+.statusTag {
+    display: inline-block;
+
+    margin-left: 8px;
+    padding: 3px 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    border-radius: 8px;
+    user-select: none;
+}
+
+.wip {
+    background-color: var(--warning-bg);
+    color: var(--warning-text);
+}
+
+.updating {
+    background-color: var(--success-bg);
+    color: var(--success-text);
+}
+
+.done {
+    background-color: var(--light-bg);
+    color: var(--gray);
+}
+
+
+/* hover effect only on devices that actually support hover */
+@media (hover: hover) and (pointer: fine) {
+    .moreMods:hover {
+        cursor: pointer;
+        background-color: var(--primary);
+        transform: translateX(-50%) scale(1.02);;
+        color: var(--black);
+    }
+}
+
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+    }
+    .left {
+        order: 1;
+    }
+    .side {
+        order: 2;
+
+    }
+    .right {
+        order: 3;
+    }
+}
+
+/*@media (max-width: 1350px) {*/
+/*    .side {*/
+/*        visibility: hidden;*/
+/*    }*/
+/*}*/

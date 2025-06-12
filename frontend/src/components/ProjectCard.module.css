@@ -1,0 +1,52 @@
+
+.projectCardContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    background-color: var(--light-bg);
+    padding: 15px;
+    border-radius: 15px;
+    align-items: center;
+    transition: 100ms ease-in-out;
+}
+
+.projectCardContainer div {
+    display: flex;
+    flex-direction: column;
+}
+
+.projectCardContainer img {
+    width: 75px;
+    border: 1px solid var(--bg);
+    border-radius: 15px;
+    transition: 100ms ease-in-out;
+}
+
+.projectCardContainer div h3 {
+    margin: 5px 0;
+    color: var(--white);
+    letter-spacing: .1px;
+    transition: 100ms ease-in-out;
+}
+.projectCardContainer div p {
+    margin: 5px 0;
+    color: var(--gray);
+    transition: 100ms ease-in-out;
+}
+
+/* hover effect only on devices that actually support hover */
+@media (hover: hover) and (pointer: fine) {
+    .projectCardContainer:hover {
+        cursor: pointer;
+        transform: scale(1.02);
+        background-color: var(--primary);
+    }
+
+    .projectCardContainer:hover div h3 {
+        color: var(--bg);
+    }
+
+    .projectCardContainer:hover div p {
+        color: var(--light-bg);
+    }
+}

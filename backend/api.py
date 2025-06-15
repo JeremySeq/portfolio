@@ -25,9 +25,10 @@ def message():
 def get_mod_data():
     ip = request.remote_addr
     logger.info(f"{ip} - requested mod data")
-    author_data = curseforge_data.get_author_data()
-    if author_data:
-        total, all_projects = curseforge_data.get_download_summary(author_data)
+
+    mods = curseforge_data.fetch_mods_by_author()
+    if mods:
+        total, all_projects = curseforge_data.get_download_summary(mods)
         return jsonify({
             "total": total,
             "projects": all_projects

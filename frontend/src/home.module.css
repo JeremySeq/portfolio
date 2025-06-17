@@ -160,6 +160,26 @@
     color: var(--gray);
 }
 
+.playGamesButton {
+    background-color: var(--primary);
+    color: var(--black);
+    font-size: 16pt;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    text-decoration: none;
+    font-family: "JetBrains Mono", monospace;
+    transition: transform 100ms ease-in-out, background-color 200ms ease-in-out;
+    display: inline-block;
+    text-align: center;
+}
+
+.playGamesButton:hover {
+    background-color: var(--primary-light);
+    transform: scale(1.05);
+    cursor: pointer;
+}
 
 /* hover effect only on devices that actually support hover */
 @media (hover: hover) and (pointer: fine) {

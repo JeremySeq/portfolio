@@ -2,6 +2,7 @@
 import './App.css'
 import {BrowserRouter, Route, Routes} from "react-router";
 import Home from "./Home.tsx";
+import GamesPage from "./GamesPage.tsx";
 
 function App() {
 
@@ -10,7 +11,7 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home/>}/>
-                <Route path="/projects" element={<h1></h1>}/>
+                <Route path="/games" element={<GamesPage/>}/>
             </Routes>
         </BrowserRouter>
     </>

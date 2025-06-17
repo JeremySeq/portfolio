@@ -1,0 +1,72 @@
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--white, #222);
+}
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--primary);
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    text-align: center;
+    color: var(--gray);
+}
+
+.gameList {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.gameItem a {
+    display: block;
+    font-size: 16pt;
+    padding: 12px 20px;
+    background-color: var(--light-bg);
+    border-radius: 10px;
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.gameItem a:hover {
+    background-color: var(--primary);
+    color: var(--black);
+    outline: none;
+}
+
+.gameItem a:hover .gameDate,
+.gameItem a:hover .gameDescription {
+    color: var(--primary-dark);
+}
+
+.gameTitle {
+    font-size: 16pt;
+    font-weight: 600;
+}
+
+.gameDescription {
+    font-size: 13pt;
+    color: var(--gray);
+    margin: 4px 0;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+.gameDate {
+    font-size: 11pt;
+    color: var(--gray);
+    margin-top: 5px;
+    transition: all 0.2s ease;
+}

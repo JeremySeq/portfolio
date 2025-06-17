@@ -96,6 +96,10 @@ function Home() {
 
                 <div className={styles.break}></div>
 
+                <a href="/games" className={styles.playGamesButton}>
+                    <i className="fa-solid fa-gamepad"></i> Play My Web Games
+                </a>
+
                 <div className={styles.aboutMe}>
                     <h2>About Me</h2>
 

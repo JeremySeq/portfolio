@@ -10,6 +10,20 @@ games.register_blueprint(heatseeker, url_prefix="/heatseeker")
 
 games_json_path = os.path.join(games_dir, "games.json")
 
+def get_latest_modified_time(path) -> float:
+    latest = os.path.getmtime(path)
+    for root, _, files in os.walk(path):
+        for fname in files:
+            fpath = os.path.join(root, fname)
+            try:
+                mtime = os.path.getmtime(fpath)
+                if mtime > latest:
+                    latest = mtime
+            except FileNotFoundError:
+                continue
+    return latest
+
+
 @games.route('/', methods=["GET"])
 def get_games():
     if not os.path.exists(games_json_path):
@@ -21,10 +35,11 @@ def get_games():
     except json.JSONDecodeError:
         return jsonify({"error": "Invalid JSON format"}), 500
 
+    # NOTE: when scaled, this could become very expensive
     for key, value in data.items():
         folder_path = os.path.join(games_dir, key)
         if os.path.isdir(folder_path):
-            timestamp = os.path.getmtime(folder_path)
+            timestamp = get_latest_modified_time(folder_path)
             modified_date = datetime.fromtimestamp(timestamp).strftime("%m/%d/%Y")
             value["date"] = modified_date
         else:

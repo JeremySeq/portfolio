@@ -30,6 +30,10 @@ def favicon():
 def serve_game(game):
     return redirect(f"/games/{game}/index.html")
 
+@frontend.route('/games/<game>/')
+def serve_game_2(game):
+    return redirect(f"/games/{game}/index.html")
+
 @frontend.route('/games/<game>/index.html')
 def serve_game_index(game):
     """Serves a Unity game's index.html page"""

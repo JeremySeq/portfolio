@@ -46,6 +46,10 @@ for cmd in commands:
     stdin, stdout, stderr = ssh.exec_command(cmd)
     stdout.channel.recv_exit_status()  # Wait for command to finish
 
+if send_games:
+    stdin, stdout, stderr = ssh.exec_command(f"rm -rf {REMOTE_BASE_DIR}/games")
+    stdout.channel.recv_exit_status()
+
 # === Step 4: SCP files ===
 print("Transferring backend, frontend/dist", end="")
 if send_games:

@@ -83,6 +83,7 @@ input {
     padding: 10px 0;
     text-align: center;
     transition: 100ms ease-in-out;
+    color: var(--white);
 }
 
 input:focus {

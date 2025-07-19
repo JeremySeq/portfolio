@@ -37,6 +37,7 @@ def serve_game(game):
     if is_unity_game(game):
         return redirect(f"/games/{game}/index.html")
     # not unity - let main SPA handle routing
+    logger.info(f"{request.remote_addr} - requested game: {game}", extra={"tag": "Frontend"})
     return send_from_directory(frontend_dist_dir, 'index.html')
 
 @frontend.route('/games/<game>/')

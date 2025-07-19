@@ -1,6 +1,11 @@
 {
     "heatseeker": {
         "title": "Heatseeker",
-        "description": "Dodge missiles in a fast-paced rocket survival game."
+        "description": "Dodge missiles in a fast-paced rocket survival game.",
+        "isUnity": true
+    },
+    "sumitup": {
+        "title": "Sum it Up",
+        "description": "A daily math puzzle where you remove numbers from a grid to match target sums for each row and column."
     }
 }

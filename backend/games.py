@@ -4,9 +4,11 @@ import json
 from datetime import datetime
 from heatseeker.heatseeker import heatseeker
 from frontend import games_dir
+from sumitup.sumitup import sumitup
 
 games = Blueprint('games', __name__)
 games.register_blueprint(heatseeker, url_prefix="/heatseeker")
+games.register_blueprint(sumitup, url_prefix="/sumitup")
 
 games_json_path = os.path.join(games_dir, "games.json")
 

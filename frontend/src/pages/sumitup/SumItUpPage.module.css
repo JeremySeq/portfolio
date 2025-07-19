@@ -132,8 +132,14 @@ input:focus {
 .sum {
     background: transparent;
     border: 2px solid var(--light-bg);
-    color: var(--secondary);
+    color: var(--primary-dark);
     cursor: default;
+    transition: color 0.2s ease;
+}
+
+.correctSum {
+    color: var(--primary-light) !important;
+    font-weight: bold;
 }
 
 .shareSection {

@@ -32,6 +32,9 @@ export default function SumItUpPage() {
         return localStorage.getItem("sumitup-username") || "Anonymous";
     });
 
+    const [correctRows, setCorrectRows] = useState<boolean[]>(Array(SIZE).fill(false));
+    const [correctCols, setCorrectCols] = useState<boolean[]>(Array(SIZE).fill(false));
+
     const [gameStarted, setGameStarted] = useState(false);
     const timerRef = useRef<number | null>(null);
     const [phraseIndex, setPhraseIndex] = useState(0);
@@ -50,7 +53,6 @@ export default function SumItUpPage() {
     const [averageTime, setAverageTime] = useState<number | null>(null);
     const [showLeaderboard, setShowLeaderboard] = useState(false);
 
-    // cycle
     useEffect(() => {
         const interval = setInterval(() => {
             setPhraseIndex(i => (i + 1) % phrases.length);
@@ -66,7 +68,7 @@ export default function SumItUpPage() {
                 setAverageTime(data.average_time);
             })
             .catch((err) => console.error("Failed to load leaderboard:", err));
-    }, [showLeaderboard])
+    }, [showLeaderboard]);
 
     const standardVariants = {
         hidden: { opacity: 0, y: -30 },
@@ -140,14 +142,21 @@ export default function SumItUpPage() {
 
     const checkWin = (removedGrid: boolean[][]) => {
         if (!puzzle) return;
+
         let success = true;
+        const newCorrectRows = Array(SIZE).fill(false);
+        const newCorrectCols = Array(SIZE).fill(false);
 
         for (let r = 0; r < SIZE; r++) {
             let sum = 0;
             for (let c = 0; c < SIZE; c++) {
                 if (!removedGrid[r][c]) sum += puzzle.grid[r][c];
             }
-            if (sum !== puzzle.rowSums[r]) success = false;
+            if (sum === puzzle.rowSums[r]) {
+                newCorrectRows[r] = true;
+            } else {
+                success = false;
+            }
         }
 
         for (let c = 0; c < SIZE; c++) {
@@ -155,8 +164,15 @@ export default function SumItUpPage() {
             for (let r = 0; r < SIZE; r++) {
                 if (!removedGrid[r][c]) sum += puzzle.grid[r][c];
             }
-            if (sum !== puzzle.colSums[c]) success = false;
+            if (sum === puzzle.colSums[c]) {
+                newCorrectCols[c] = true;
+            } else {
+                success = false;
+            }
         }
+
+        setCorrectRows(newCorrectRows);
+        setCorrectCols(newCorrectCols);
 
         if (success) {
             if (timerRef.current) clearInterval(timerRef.current);
@@ -278,10 +294,15 @@ export default function SumItUpPage() {
 
                                         const isRemoved = row < SIZE && col < SIZE && removed[row][col];
 
+                                        const isCorrectSum =
+                                            (row === SIZE && correctCols[col]) ||
+                                            (col === SIZE && correctRows[row]);
+
                                         const cellClass = [
                                             styles.cell,
                                             isSum ? styles.sum : "",
                                             isRemoved ? styles.removed : "",
+                                            isSum && isCorrectSum ? styles.correctSum : "",
                                         ]
                                             .filter(Boolean)
                                             .join(" ");
